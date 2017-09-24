@@ -1,0 +1,39 @@
+import static org.junit.Assert.*;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import org.junit.Test;
+
+import Assignment.StudentSubmission;
+
+public class TestAssignmentStudentSubmission {
+	
+	private static SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+	
+	// This will make it a bit easier for us to make Date objects
+	private static Date getDate(String s) {
+		try {
+			return df.parse(s);
+		} catch (ParseException e) {
+			e.printStackTrace();
+			fail("The test case is broken, invalid SimpleDateFormat parse");
+		}
+		// unreachable
+		return null;
+	} 
+	
+	// helper method to compare two Submissions using assertions
+	private static void testHelperEquals(Submission expected, Submission actual) {
+		assertEquals(expected.getUnikey(), actual.getUnikey());
+		assertEquals(expected.getTime(), actual.getTime());
+		assertEquals(expected.getGrade(), actual.getGrade());
+	}
+	
+	
+	
+	@Test
+	Submission new_submission = (Submission) new StudentSubmission(unikey, timestamp, grade);
+
+}

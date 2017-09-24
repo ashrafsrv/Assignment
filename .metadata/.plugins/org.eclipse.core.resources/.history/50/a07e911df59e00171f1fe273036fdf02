@@ -1,0 +1,54 @@
+import static org.junit.Assert.*;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import org.junit.Test;
+
+public class AssignmentTest {
+	
+	private static SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+	
+	private static Assignment assignment = new Assignment();
+	
+	// This will make it a bit easier for us to make Date objects
+	private static Date getDate(String s) {
+		try {
+			return df.parse(s);
+		} catch (ParseException e) {
+			e.printStackTrace();
+			fail("The test case is broken, invalid SimpleDateFormat parse");
+		}
+		// unreachable
+		return null;
+	}
+	
+	// helper method to compare two Submissions using assertions
+	private static void testHelperEquals(Submission expected, Submission actual) {
+		assertEquals(expected.getUnikey(), actual.getUnikey());
+		assertEquals(expected.getTime(), actual.getTime());
+		assertEquals(expected.getGrade(), actual.getGrade());
+	}
+		
+	// helper method to compare two Submissions using assertions
+	private static void testHelperEquals(String unikey, Date timestamp, Integer grade, Submission actual) {
+		assertEquals(unikey, actual.getUnikey());
+		assertEquals(timestamp, actual.getTime());
+		assertEquals(grade, actual.getGrade());
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void addUnikeyNull() {
+		assignment.add(null, getDate("2016/09/03 09:00:00"), new Integer(80));
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void addTimestampNull() {
+		assignment.add("mrah", null, new Integer(80));
+	}
+	
+	@Test(expected = IllegalArgumentException.class){
+		assignment.add("mrah", getDate("2016/09/03 09:00:00"), null);
+	}
+}

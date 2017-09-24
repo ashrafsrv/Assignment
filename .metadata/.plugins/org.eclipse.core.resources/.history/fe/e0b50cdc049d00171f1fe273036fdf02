@@ -1,0 +1,12 @@
+import java.util.Comparator;
+import java.util.Date;
+
+import Assignment.SubmissionHistory.Submission;
+
+public class SubmissionDateComparator implements Comparator<Submission>{
+	
+	@Override
+	public int compare(Submission submission, Submission other_submission){
+		return ((Date)submission.getTime()).compareTo((Date)(other_submission.getTime()));
+	}
+}

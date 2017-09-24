@@ -1,0 +1,95 @@
+import java.util.Date;
+import java.util.List;
+
+public class Assignment implements SubmissionHistory {
+	
+private static Integer highestGrade; //For an assignment
+	
+	// class for submission objects
+	public class Submission{
+		private String unikey;
+		private Date submission_date;
+		private Integer grade;
+		
+		public Submission(){
+			this.unikey = null;
+			this.submission_date = null;
+			this.grade = null;
+		}
+		
+		public String getUnikey() {
+			return this.unikey;
+		}
+		
+		public void setUnikey(String unikey) {
+			this.unikey = unikey;
+		}
+		
+		public Date getTime() {
+			return this.submission_date;
+		}
+		
+		public void setTime(Date date) {
+			this.submission_date = date;
+		}
+		
+		public Integer getGrade(){
+			return this.grade;
+		} 
+		
+		public void setGrade(Integer grade) {
+			this.grade = grade;
+		}
+		
+	}
+	/**
+	 * Default constructor
+	 */
+	public Assignment() {
+		// TODO initialise your data structures
+	}
+
+	@Override
+	public Integer getBestGrade(String unikey) {
+		// TODO Implement this, ideally in better than O(n)
+		return null;
+	}
+
+	@Override
+	public Submission getSubmissionFinal(String unikey) {
+		// TODO Implement this, ideally in better than O(n)
+		return null;
+	}
+
+	@Override
+	public Submission getSubmissionBefore(String unikey, Date deadline) {
+		// TODO Implement this, ideally in better than O(n)
+		return null;
+	}
+
+	@Override
+	public Submission add(String unikey, Date timestamp, Integer grade) {
+		// TODO Implement this, ideally in better than O(n)
+		return null;
+	}
+
+	@Override
+	public void remove(Submission submission) {
+		// TODO Implement this, ideally in better than O(n)
+		
+	}
+
+	@Override
+	public List<String> listTopStudents() {
+		// TODO Implement this, ideally in better than O(n)
+		// (you may ignore the length of the list in the analysis)
+		return null;
+	}
+
+	@Override
+	public List<String> listRegressions() {
+		// TODO Implement this, ideally in better than O(n^2)
+		return null;
+	}
+	
+}

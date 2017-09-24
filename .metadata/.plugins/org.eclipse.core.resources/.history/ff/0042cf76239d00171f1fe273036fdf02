@@ -1,0 +1,109 @@
+import java.util.Date;
+import java.util.List;
+import java.util.TreeMap;
+import java.util.Comparator;
+import java.lang.Comparable;
+
+public class Assignment implements SubmissionHistory {
+	
+	// class for submission objects
+	private class Submission{
+		private String unikey;
+		private Date submission_date;
+		private Integer grade;
+		
+		public Submission(String unikey, Date date, Integer grade){
+			this.unikey = unikey;
+			this.submission_date = date;
+			this.grade = grade;
+		}
+		
+		public String getUnikey() {
+			return this.unikey;
+		}
+		
+		
+		
+		public Date getTime() {
+			return this.submission_date;
+		}
+		
+		
+		
+		public Integer getGrade(){
+			return this.grade;
+		} 
+		
+		
+		
+	}
+	
+	//Outer TreeMap has unikeys has keys
+	//Inner TreeMap has Date objects as keys
+	TreeMap<String, TreeMap<Date, Submission>> submissions;
+	private static Integer highestGrade; //For an assignment
+	
+	/**
+	 * Default constructor
+	 */
+	public Assignment() {
+		// TODO initialise your data structures
+		this.submissions = new TreeMap<>();
+		this.highestGrade = null;
+	}
+
+	@Override
+	public Integer getBestGrade(String unikey) {
+		// TODO Implement this, ideally in better than O(n)
+		return null;
+	}
+
+	@Override
+	public Submission getSubmissionFinal(String unikey) {
+		// TODO Implement this, ideally in better than O(n)
+		return null;
+	}
+
+	@Override
+	public Submission getSubmissionBefore(String unikey, Date deadline) {
+		// TODO Implement this, ideally in better than O(n)
+		return null;
+	}
+
+	@Override
+	public Submission add(String unikey, Date timestamp, Integer grade) {
+		// TODO Implement this, ideally in better than O(n)
+		Submission new_submission = new Submission(unikey, timestamp, grade);
+		
+		// If there is an existing student
+		if(this.submissions.containsKey(unikey)) {
+			(this.submissions.get(unikey)).put(timestamp, new_submission);
+		}
+		else {
+			this.submissions.put(unikey, new TreeMap<Date, Submission>());
+			this.submissions.get(unikey).put(timestamp, new_submission);
+		}
+		
+		return null;
+	}
+
+	@Override
+	public void remove(Submission submission) {
+		// TODO Implement this, ideally in better than O(n)
+		return;
+	}
+
+	@Override
+	public List<String> listTopStudents() {
+		// TODO Implement this, ideally in better than O(n)
+		// (you may ignore the length of the list in the analysis)
+		return null;
+	}
+
+	@Override
+	public List<String> listRegressions() {
+		// TODO Implement this, ideally in better than O(n^2)
+		return null;
+	}
+	
+}

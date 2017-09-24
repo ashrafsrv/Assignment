@@ -1,0 +1,38 @@
+import java.util.Date;
+
+public class StudentSubmission{
+		private String unikey;
+		private Date submission_date;
+		private Integer grade;
+		
+		public StudentSubmission(String unikey, Date date, Integer grade){
+			this.unikey = unikey;
+			this.submission_date = date;
+			this.grade = grade;
+		}
+		
+		public String getUnikey() {
+			return this.unikey;
+		}
+		
+		public void setUnikey(String unikey) {
+			this.unikey = unikey;
+		}
+		
+		public Date getTime() {
+			return this.submission_date;
+		}
+		
+		public void setTime(Date date) {
+			this.submission_date = date;
+		}
+		
+		public Integer getGrade(){
+			return this.grade;
+		} 
+		
+		public void setGrade(Integer grade) {
+			this.grade = grade;
+		}
+		
+	}

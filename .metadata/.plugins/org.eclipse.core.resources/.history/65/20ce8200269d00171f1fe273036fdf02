@@ -1,0 +1,105 @@
+import java.util.Date;
+import java.util.List;
+import java.util.TreeMap;
+import java.util.Comparator;
+import java.lang.Comparable;
+
+public class Assignment implements SubmissionHistory {
+	
+	// class for submission objects
+	private class StudentSubmission{
+		private String unikey;
+		private Date submission_date;
+		private Integer grade;
+		
+		public StudentSubmission(String unikey, Date date, Integer grade){
+			this.unikey = unikey;
+			this.submission_date = date;
+			this.grade = grade;
+		}
+		
+		public String getUnikey() {
+			return this.unikey;
+		}
+		
+		public void setUnikey(String unikey) {
+			this.unikey = unikey;
+		}
+		
+		public Date getTime() {
+			return this.submission_date;
+		}
+		
+		public void setTime(Date date) {
+			this.submission_date = date;
+		}
+		
+		public Integer getGrade(){
+			return this.grade;
+		} 
+		
+		public void setGrade(Integer grade) {
+			this.grade = grade;
+		}
+		
+	}
+	
+	//Data structure for assignment
+	TreeMap<String, TreeMap<Date, Integer>> all_submissions;
+	
+	private static Integer highest_grade; //For an assignment
+	
+	/**
+	 * Default constructor
+	 */
+	public Assignment() {
+		// TODO initialise your data structures
+		this.all_submissions = new TreeMap<>();
+		this.highest_grade = null;
+	}
+
+	@Override
+	public Integer getBestGrade(String unikey) {
+		// TODO Implement this, ideally in better than O(n)
+		return null;
+	}
+
+	@Override
+	public Submission getSubmissionFinal(String unikey) {
+		// TODO Implement this, ideally in better than O(n)
+		return null;
+	}
+
+	@Override
+	public Submission getSubmissionBefore(String unikey, Date deadline) {
+		// TODO Implement this, ideally in better than O(n)
+		return null;
+	}
+
+	@Override
+	public Submission add(String unikey, Date timestamp, Integer grade) {
+		// TODO Implement this, ideally in better than O(n)
+		Submission new_submission = (Submission) new StudentSubmission(unikey, timestamp, grade);
+		return null;
+	}
+
+	@Override
+	public void remove(Submission submission) {
+		// TODO Implement this, ideally in better than O(n)
+		
+	}
+
+	@Override
+	public List<String> listTopStudents() {
+		// TODO Implement this, ideally in better than O(n)
+		// (you may ignore the length of the list in the analysis)
+		return null;
+	}
+
+	@Override
+	public List<String> listRegressions() {
+		// TODO Implement this, ideally in better than O(n^2)
+		return null;
+	}
+	
+}
